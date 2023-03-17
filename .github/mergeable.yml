@@ -7,8 +7,3 @@ mergeable:
         no_empty:
           enabled: true
           message: 'Description cannot be empty!'
-        must_include:
-          regex: '\[x\] ?I know what I am doing|\[x\] ?This is bullshit'
-          regex_flag: 'i'
-          message: >
-            Check the checkbox, bitch!
