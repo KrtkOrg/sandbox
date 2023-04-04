@@ -12,6 +12,9 @@ mergeable:
           regex_flag: 'i'
           message: >
             Check the checkbox, bitch!
+  - when: pull_request.*, pull_request_review.*, status.*, check_suite.*
+    name: "Title checks"
+    validate:
       - do: title
           begins_with:
             match: ['TRIVIAL', 'FIX', 'FEATURE', 'CHORE', 'DOC']
