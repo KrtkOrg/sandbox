@@ -12,3 +12,11 @@ mergeable:
           regex_flag: 'i'
           message: >
             Check the checkbox, bitch!
+      - do: title
+          begins_with:
+            match: ['TRIVIAL', 'FIX', 'FEATURE', 'CHORE', 'DOC']
+            message: 'You have to prefix title with TRIVIAL, FIX, FEATURE, CHORE or DOC'
+          jira:
+            regex: '([A-Z]{2,6}-\d+)|(NOJIRA)'
+            regex_flag: none
+            message: 'Add JIRA ticket into the description'
