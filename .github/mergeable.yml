@@ -1,9 +1,14 @@
 version: 2
 mergeable:
   - when: pull_request.*, pull_request_review.*, status.*, check_suite.*
-    name: "Automatically merge pull requests once it passes all checks"
+    name: "Description checks"
     validate:
       - do: description
         no_empty:
           enabled: true
           message: 'Description cannot be empty!'
+        must_include:
+          regex: '\[x\] ?I know what I am doing|\[x\] ?This is bullshit'
+          regex_flag: 'i'
+          message: >
+            Check the checkbox, bitch!
